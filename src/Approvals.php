@@ -6,7 +6,6 @@ use ApprovalTests\Reporters\Reporter;
 use ApprovalTests\Reporters\PHPUnitReporter;
 use ApprovalTests\Reporters\OpenReceivedFileReporter;
 use ApprovalTests\Namers\PHPUnitNamer;
-//use ApprovalTests\Writers\ZendPdfWriter;
 
 class Approvals {
 	private $reporter = null;
