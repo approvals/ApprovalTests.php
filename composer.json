@@ -1,0 +1,22 @@
+{
+    "name": "mattcan/approval-tests",
+    "description": "Fork of the 2011 project Approvals",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "^5.7",
+        "zendframework/zendpdf": "^2.0.2"
+    },
+    "license": "Apache v2",
+    "authors": [
+        {
+            "name": "Matthew Cantelon",
+            "email": "gh@matthewcantelon.ca"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ApprovalTests\\": "src/",
+            "ApprovalTests\\Tests\\": "tests/"
+        }
+    }
+}
