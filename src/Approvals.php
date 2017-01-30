@@ -8,19 +8,14 @@ use ApprovalTests\Reporters\OpenReceivedFileReporter;
 use ApprovalTests\Namers\PHPUnitNamer;
 
 class Approvals {
-	private $reporter = null;
-	private $testDirectory = '';
+	private static $reporter = null;
+	private static $testDirectory = '';
 
-	public function __construct($testFile)
-	{
-		$this->testDirectory = dirname($testFile);
-	}
-
-	public function approveString($received) {
+	public static function approveString($received) {
 		self::approve(new TextWriter($received, 'txt'), new PHPUnitNamer(), self::getReporter('txt'));
 	}
 
-	public function getReporter($extensionWithoutDot) {
+	public static function getReporter($extensionWithoutDot) {
 		if (is_null(self::$reporter)) {
 		switch($extensionWithoutDot) {
 			case 'html':
@@ -34,15 +29,14 @@ class Approvals {
 		return self::$reporter;
 	}
 
-	public function useReporter(Reporter $reporter) {
+	public static function useReporter(Reporter $reporter) {
 		self::$reporter = $reporter;
 	}
 
-	public function approve(Writer $writer, $namer, Reporter $reporter) {
+	public static function approve(Writer $writer, $namer, Reporter $reporter) {
 		$extension = $writer->getExtensionWithoutDot();
 		$approvedFilename = $namer->getApprovedFile($extension);
 		$receivedFilename = $writer->write($namer->getReceivedFile($extension));
-		var_dump($extension, $approvedFilename, $receivedFilename);die;
 		if (!file_exists($approvedFilename)) {
 			$approvedContents = null;
 		} else {
@@ -60,7 +54,7 @@ class Approvals {
 		}
 	}
 
-	public function approveTransformedList(array $list, $callbackObject, $methodName) {
+	public static function approveTransformedList(array $list, $callbackObject, $methodName) {
 		$string = '';
 		foreach($list as $item) {
 			$string .= $item . ' -> ' . $callbackObject->$methodName($item) . "\n";
@@ -68,7 +62,7 @@ class Approvals {
 		self::approveString($string);
 	}
 
-	public function approveList(array $list) {
+	public static function approveList(array $list) {
 		$string = '';
 		foreach($list as $key => $item) {
 			$string .= '[' . $key . '] -> ' . $item . "\n";
@@ -76,11 +70,11 @@ class Approvals {
 		self::approveString($string);
 	}
 
-	public function approveHtml($html) {
+	public static function approveHtml($html) {
 		self::approve(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
 	}
 
-	public function approvePdf(Zend_Pdf $pdf) {
+	public static function approvePdf(Zend_Pdf $pdf) {
 		self::approve(new ZendPdfWriter($pdf), new PHPUnitNamer(), self::getReporter('pdf'));
 	}
 }
