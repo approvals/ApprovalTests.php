@@ -23,5 +23,10 @@ class ApprovalTest extends TestCase {
 		);
 		Approvals::approveList($list);
 	}
+
+	public function testApproveString() {
+		$fudge = 'fudge';
+		Approvals::approveString($fudge);
+	}
 }
 ?>
