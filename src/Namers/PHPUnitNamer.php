@@ -44,9 +44,8 @@ class PHPUnitNamer implements Namer
 
     private function getFile($status, $extensionWithoutDot)
     {
-        return $this->getCallingTestDirectory()
-            . DIRECTORY_SEPARATOR . 'approvals' . DIRECTORY_SEPARATOR
-            . $this->getCallingTestClassNameWithoutNamespace()
+        return $this->getApprovalsDirectory()
+            . DIRECTORY_SEPARATOR . $this->getCallingTestClassNameWithoutNamespace()
             . '.' . $this->getCallingTestMethodName()
             . '.' . $status
             . '.' . $extensionWithoutDot;
@@ -74,5 +73,10 @@ class PHPUnitNamer implements Namer
     public function getCallingTestDirectory()
     {
         return $this->testDirectory;
+    }
+
+    protected function getApprovalsDirectory()
+    {
+        return $this->getCallingTestDirectory() . DIRECTORY_SEPARATOR . 'approvals';
     }
 }
