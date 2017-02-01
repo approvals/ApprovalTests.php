@@ -52,8 +52,7 @@ class Approvals
         if ($approvedContents === $receivedContents) {
             unlink($receivedFilename);
         } else {
-            $reporter->reportFailure($approvedFilename, $receivedFilename);
-            //throw new \RuntimeException('Approval File Mismatch: ' . $receivedFilename . ' does not match ' . $approvedFilename . $hint);
+            $reporter->report($approvedContents, $receivedContents);
         }
     }
 

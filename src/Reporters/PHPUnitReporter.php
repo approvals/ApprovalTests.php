@@ -4,14 +4,8 @@ use PHPUnit\Framework\Assert;
 
 class PHPUnitReporter implements Reporter
 {
-    public function reportFailure($approvedFilename, $receivedFilename)
+    public function report($approvedFileContents, $receivedFileContents)
     {
-        if (!file_exists($approvedFilename)) {
-            $approvedFileContents = null;
-        } else {
-            $approvedFileContents = file_get_contents($approvedFilename);
-        }
-        $receivedFileContents = file_get_contents($receivedFilename);
         Assert::assertEquals($approvedFileContents, $receivedFileContents);
     }
 }

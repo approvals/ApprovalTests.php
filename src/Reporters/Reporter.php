@@ -2,5 +2,5 @@
 
 interface Reporter
 {
-    public function reportFailure($approvedFilename, $receivedFilename);
+    public function report($approvedFileContents, $receivedFileContents);
 }
