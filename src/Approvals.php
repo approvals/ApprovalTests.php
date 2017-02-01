@@ -23,8 +23,6 @@ class Approvals
             switch ($extensionWithoutDot) {
             case 'html':
             case 'pdf':
-                return new OpenReceivedFileReporter();
-                break;
             default:
                 return new PHPUnitReporter();
             }
@@ -77,10 +75,5 @@ class Approvals
     public static function approveHtml($html)
     {
         self::approve(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
-    }
-
-    public static function approvePdf(Zend_Pdf $pdf)
-    {
-        self::approve(new ZendPdfWriter($pdf), new PHPUnitNamer(), self::getReporter('pdf'));
     }
 }
