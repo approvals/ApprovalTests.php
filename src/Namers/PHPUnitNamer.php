@@ -1,6 +1,6 @@
 <?php namespace ApprovalTests\Namers;
 
-class PHPUnitNamer
+class PHPUnitNamer implements Namer
 {
     private $caller;
     private $testDirectory;
