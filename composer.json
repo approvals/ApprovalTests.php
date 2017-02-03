@@ -1,10 +1,9 @@
 {
     "name": "mattcan/approval-tests",
-    "description": "Fork of the 2011 project Approvals",
+    "description": "Approval Testing for your legacy projects.",
     "type": "library",
     "require": {
-        "phpunit/phpunit": "^5.7",
-        "zendframework/zendpdf": "^2.0.2"
+        "phpunit/phpunit": "^5.7"
     },
     "license": "Apache v2",
     "authors": [
