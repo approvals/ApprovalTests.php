@@ -1,7 +1,6 @@
 <?php namespace ApprovalTests\Writers;
 
 use ApprovalTests\FileUtil;
-use ApprovalTests\Namers\Namer;
 
 class TextWriter implements Writer
 {
