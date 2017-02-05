@@ -6,6 +6,7 @@ use ApprovalTests\Reporters\Reporter;
 use ApprovalTests\Reporters\PHPUnitReporter;
 use ApprovalTests\Reporters\OpenReceivedFileReporter;
 use ApprovalTests\Namers\PHPUnitNamer;
+use ApprovalTests\Namers\Namer;
 
 class Approvals
 {
@@ -35,16 +36,19 @@ class Approvals
         self::$reporter = $reporter;
     }
 
-    public static function approve(Writer $writer, $namer, Reporter $reporter)
+    /**
+     * Perform the approval test by comparing the contents of one file to another
+     */
+    public static function approve(Writer $writer, Namer $namer, Reporter $reporter)
     {
         $extension = $writer->getExtensionWithoutDot();
         $approvedFilename = $namer->getApprovedFile($extension);
         if (!file_exists($approvedFilename)) {
-            $writer->write($namer->getApprovedFile($extension));
+            $writer->write($namer->getApprovedFile($extension), $namer->getApprovalsDirectory());
         } 
         $approvedContents = file_get_contents($approvedFilename);
 
-        $receivedFilename = $writer->write($namer->getReceivedFile($extension));
+        $receivedFilename = $writer->write($namer->getReceivedFile($extension), $namer->getApprovalsDirectory());
         $receivedContents = file_get_contents($receivedFilename);
 
         if ($approvedContents === $receivedContents) {
