@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/windows,vim,composer,linux,osx
 
+### Project ###
+*.received.txt
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db

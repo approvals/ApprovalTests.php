@@ -75,7 +75,7 @@ class PHPUnitNamer implements Namer
         return $this->testDirectory;
     }
 
-    protected function getApprovalsDirectory()
+    public function getApprovalsDirectory()
     {
         return $this->getCallingTestDirectory() . DIRECTORY_SEPARATOR . 'approvals';
     }
