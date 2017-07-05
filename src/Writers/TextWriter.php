@@ -27,4 +27,9 @@ class TextWriter implements Writer
         file_put_contents($fileNameAndPath, $this->received);
         return $fileNameAndPath;
     }
+
+    public function delete($fileNameAndPath)
+    {
+        return unlink($fileNameAndPath);
+    }
 }

@@ -51,10 +51,11 @@ class Approvals
         $receivedFilename = $writer->write($namer->getReceivedFile($extension), $namer->getApprovalsDirectory());
         $receivedContents = file_get_contents($receivedFilename);
 
-        if ($approvedContents === $receivedContents) {
-            unlink($receivedFilename);
-        } else {
-            $reporter->report($approvedContents, $receivedContents);
+        if ($reporter->report($approvedContents, $receivedContents)) {
+            $writer->delete($receivedFilename);
+
+            // Do not want to catch this so that PHPUnit picks it up
+            throw new PHPUnit\Framework\ExpectationFailedException();
         }
     }
 
