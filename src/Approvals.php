@@ -44,11 +44,16 @@ class Approvals
         $extension = $writer->getExtensionWithoutDot();
         $approvedFilename = $namer->getApprovedFile($extension);
         if (!file_exists($approvedFilename)) {
-            $writer->write($namer->getApprovedFile($extension), $namer->getApprovalsDirectory());
-        } 
+          $writer->write(
+            $namer->getApprovedFile($extension),
+            $namer->getApprovalsDirectory());
+        }
         $approvedContents = file_get_contents($approvedFilename);
 
-        $receivedFilename = $writer->write($namer->getReceivedFile($extension), $namer->getApprovalsDirectory());
+        $receivedFilename = $writer->write(
+          $namer->getReceivedFile($extension),
+          $namer->getApprovalsDirectory());
+
         $receivedContents = file_get_contents($receivedFilename);
 
         if ($reporter->report($approvedContents, $receivedContents)) {
