@@ -9,7 +9,7 @@ class PHPUnitReporter implements Reporter
         try {
             Assert::assertEquals($approvedFileContents, $receivedFileContents);
             return true;
-        } catch (PHPUnit\Framework\ExpectationFailedException $e) {
+        } catch (\PHPUnit\Framework\ExpectationFailedException $e) {
             return false;
         }
     }

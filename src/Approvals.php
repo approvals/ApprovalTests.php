@@ -58,9 +58,10 @@ class Approvals
 
         if ($reporter->report($approvedContents, $receivedContents)) {
             $writer->delete($receivedFilename);
-
+        }
+        else {
             // Do not want to catch this so that PHPUnit picks it up
-            throw new PHPUnit\Framework\ExpectationFailedException();
+            throw new \PHPUnit\Framework\ExpectationFailedException();
         }
     }
 
