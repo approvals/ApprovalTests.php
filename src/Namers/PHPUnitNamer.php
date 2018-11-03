@@ -23,13 +23,20 @@ class PHPUnitNamer implements Namer
 
     public static function isPHPUnitTest($path)
     {
-        $expectedPath =
-            DIRECTORY_SEPARATOR . 'phpunit'
-            . DIRECTORY_SEPARATOR . 'src'
-            . DIRECTORY_SEPARATOR . 'Framework'
-            . DIRECTORY_SEPARATOR . 'TestCase.php';
-        $pathPart = substr($path, -strlen($expectedPath));
-        return $pathPart === $expectedPath;
+        $expectedLocalPath = implode(DIRECTORY_SEPARATOR, ['', 'phpunit', 'src', 'Framework', 'TestCase.php']);
+        $expectedPharPath = implode('/', ['', 'phpunit', 'Framework', 'TestCase.php']);
+        return self::endsWith($path, $expectedLocalPath) || self::endsWith($path, $expectedPharPath);
+    }
+
+    private static function endsWith($haystack, $needle)
+    {
+        // https://stackoverflow.com/a/834355/25507
+        $length = strlen($needle);
+        if ($length == 0) {
+            return true;
+        }
+
+        return substr($haystack, -$length) === $needle;
     }
 
     public function getApprovedFile($extensionWithoutDot)
