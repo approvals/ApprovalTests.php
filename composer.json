@@ -1,15 +1,16 @@
 {
-    "name": "mattcan/approval-tests",
+    "name": "approvals/approval-tests",
     "description": "Approval Testing for your legacy projects.",
     "type": "library",
+    "homepage": "https://github.com/approvals/ApprovalTests.php",
     "require": {
         "phpunit/phpunit": "^5.4.0"
     },
     "license": "Apache v2",
     "authors": [
         {
-            "name": "Matthew Cantelon",
-            "email": "gh@matthewcantelon.ca"
+            "name": "Llewellyn Falco",
+            "email": "llewellyn.falco@gmail.com"
         }
     ],
     "autoload": {
