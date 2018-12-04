@@ -7,6 +7,7 @@ use ApprovalTests\Reporters\PHPUnitReporter;
 use ApprovalTests\Reporters\OpenReceivedFileReporter;
 use ApprovalTests\Namers\PHPUnitNamer;
 use ApprovalTests\Namers\Namer;
+use PHPUnit\Framework\Assert;
 
 class Approvals
 {
@@ -48,15 +49,22 @@ class Approvals
             $namer->getApprovedFile($extension),
             $namer->getApprovalsDirectory());
         }
-        $approvedContents = file_get_contents($approvedFilename);
 
         $receivedFilename = $writer->write(
           $namer->getReceivedFile($extension),
           $namer->getApprovalsDirectory());
 
+        $approvedContents = file_get_contents($approvedFilename);
         $receivedContents = file_get_contents($receivedFilename);
 
-        if ($reporter->report($approvedContents, $receivedContents)) {
+        try {
+            Assert::assertEquals($approvedContents, $receivedContents);
+            $matching = true;
+        } catch (\PHPUnit\Framework\ExpectationFailedException $e) {
+            $matching = false;
+        }
+
+        if ($matching) {
             $writer->delete($receivedFilename);
         }
         else {
