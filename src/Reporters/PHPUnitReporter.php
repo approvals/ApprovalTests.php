@@ -4,13 +4,10 @@ use PHPUnit\Framework\Assert;
 
 class PHPUnitReporter implements Reporter
 {
-    public function report($approvedFileContents, $receivedFileContents)
+    public function report($approvedFilename, $receivedFilename)
     {
-        try {
-            Assert::assertEquals($approvedFileContents, $receivedFileContents);
-            return true;
-        } catch (\PHPUnit\Framework\ExpectationFailedException $e) {
-            return false;
-        }
+        $approvedContents = file_get_contents($approvedFilename);
+        $receivedContents = file_get_contents($receivedFilename);
+        Assert::assertEquals($approvedContents, $receivedContents);
     }
 }

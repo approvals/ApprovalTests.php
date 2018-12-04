@@ -2,5 +2,5 @@
 
 interface Reporter
 {
-    public function report($approvedFileContents, $receivedFileContents);
+    public function report($approvedFilename, $receivedFilename);
 }

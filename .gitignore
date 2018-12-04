@@ -4,6 +4,8 @@
 ### Project ###
 *.received.txt
 
+.idea
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
