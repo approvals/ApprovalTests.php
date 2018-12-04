@@ -2,23 +2,18 @@
 
 namespace ApprovalTests;
 
-
-use PHPUnit\Framework\Assert;
-
 class FileApprover
 {
-
-    public static function checkFiles($approvedFilename, $receivedFilename): bool
+    public static function checkFiles(string $approvedFilename, string $receivedFilename): bool
     {
-        $approvedContents = file_get_contents($approvedFilename);
-        $receivedContents = file_get_contents($receivedFilename);
+        $approvedContents = FileApprover::clean(file_get_contents($approvedFilename));
+        $receivedContents = FileApprover::clean(file_get_contents($receivedFilename));
 
-        try {
-            Assert::assertEquals($approvedContents, $receivedContents);
-            $matching = true;
-        } catch (\PHPUnit\Framework\ExpectationFailedException $e) {
-            $matching = false;
-        }
-        return $matching;
+        return $approvedContents === $receivedContents;
+    }
+
+    private static function clean(string $contents): string
+    {
+        return str_replace($contents, "\r\n", "\n");
     }
 }
