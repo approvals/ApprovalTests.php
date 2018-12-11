@@ -10,4 +10,9 @@ class PHPUnitReporter implements Reporter
         $receivedContents = file_get_contents($receivedFilename);
         Assert::assertEquals($approvedContents, $receivedContents);
     }
+
+    public function isWorkingInThisEnvironment($receivedFilename)
+    {
+        return true;
+    }
 }
