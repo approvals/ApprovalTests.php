@@ -1,5 +1,6 @@
 <?php namespace ApprovalTests\Tests;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use ApprovalTests\Approvals;
 
@@ -7,6 +8,13 @@ class ApprovalTest extends TestCase
 {
     public function testVerifyArray()
     {
+        $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
+        Approvals::verifyList($list);
+    }
+
+    public function testFailedVerifyArray()
+    {
+        $this->expectException(Exception::class);
         $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
         Approvals::verifyList($list);
     }

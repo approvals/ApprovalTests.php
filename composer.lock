@@ -1,11 +1,47 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26da313bdf873d4e4bfba7a59d21b51d",
+    "content-hash": "9c0c6fbedd34cb63fac30a505c039ebd",
     "packages": [
+        {
+            "name": "delight-im/str",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/delight-im/PHP-Str.git",
+                "reference": "ea3e40132e9d4ce27da337dae6286f2478b15f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/delight-im/PHP-Str/zipball/ea3e40132e9d4ce27da337dae6286f2478b15f56",
+                "reference": "ea3e40132e9d4ce27da337dae6286f2478b15f56",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Delight\\Str\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Convenient object-oriented operations on strings",
+            "homepage": "https://github.com/delight-im/PHP-Str",
+            "keywords": [
+                "string",
+                "strings"
+            ],
+            "time": "2016-07-27T22:19:41+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
