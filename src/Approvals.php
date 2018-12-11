@@ -10,37 +10,25 @@ use ApprovalTests\Namers\Namer;
 
 class Approvals
 {
-    private static $reporter = null;
-    private static $testDirectory = '';
-
-    public static function verifyString($received)
+    public static function verifyString($received, Reporter $reporter = null)
     {
-        self::verify(new TextWriter($received, 'txt'), new PHPUnitNamer(), self::getReporter('txt'));
+        self::verify(new TextWriter($received, 'txt'), new PHPUnitNamer(), $reporter);
     }
 
-    public static function getReporter($extensionWithoutDot)
+    public static function getReporter()
     {
-        if (is_null(self::$reporter)) {
-            switch ($extensionWithoutDot) {
-            case 'html':
-            case 'pdf':
-            default:
-                return new PHPUnitReporter();
-            }
-        }
-        return self::$reporter;
-    }
-
-    public static function useReporter(Reporter $reporter)
-    {
-        self::$reporter = $reporter;
+        return new PHPUnitReporter();
     }
 
     /**
      * Perform the approval test by comparing the contents of one file to another
      */
-    public static function verify(Writer $writer, Namer $namer, Reporter $reporter)
+    public static function verify(Writer $writer, Namer $namer, Reporter $reporter = null)
     {
+        if ($reporter == null) {
+            $reporter = self::getReporter();
+        }
+
         $extension = $writer->getExtensionWithoutDot();
         $approvedFilename = $namer->getApprovedFile($extension);
         if (!file_exists($approvedFilename)) {
@@ -63,27 +51,27 @@ class Approvals
         }
     }
 
-    public static function verifyTransformedList(array $list, $callbackObject, $methodName)
+    public static function verifyTransformedList(array $list, $callbackObject, $methodName, $reporter = null)
     {
         $string = '';
         foreach ($list as $item) {
             $string .= $item . ' -> ' . $callbackObject->$methodName($item) . "\n";
         }
-        self::verifyString($string);
+        self::verifyString($string, $reporter);
     }
 
-    public static function verifyList(array $list)
+    public static function verifyList(array $list, $reporter = null)
     {
         $string = '';
         foreach ($list as $key => $item) {
             $string .= '[' . $key . '] -> ' . $item . "\n";
         }
-        self::verifyString($string);
+        self::verifyString($string, $reporter);
     }
 
-    public static function verifyHtml($html)
+    public static function verifyHtml($html, $reporter = null)
     {
-        self::verify(new TextWriter($html, 'html'), new PHPUnitNamer(), self::getReporter('html'));
+        self::verify(new TextWriter($html, 'html'), new PHPUnitNamer(), $reporter);
     }
 
     /**
