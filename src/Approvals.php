@@ -1,10 +1,9 @@
 <?php namespace ApprovalTests;
 
+use ApprovalTests\Reporters\DiffReporter;
 use ApprovalTests\Writers\Writer;
 use ApprovalTests\Writers\TextWriter;
 use ApprovalTests\Reporters\Reporter;
-use ApprovalTests\Reporters\PHPUnitReporter;
-use ApprovalTests\Reporters\OpenReceivedFileReporter;
 use ApprovalTests\Namers\PHPUnitNamer;
 use ApprovalTests\Namers\Namer;
 
@@ -17,7 +16,7 @@ class Approvals
 
     public static function getReporter()
     {
-        return new PHPUnitReporter();
+        return new DiffReporter();
     }
 
     /**
