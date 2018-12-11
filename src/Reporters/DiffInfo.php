@@ -49,6 +49,9 @@ class DiffInfo
             getenv("ProgramFiles(x86)"),
             getenv("ProgramFiles"),
             getenv("ProgramW6432"),
+            // Programs like Beyond Compare 4 that support per-user installation
+            // will likely install themselves here.
+            getenv("LocalAppData"),
         ];
         return array_unique(array_filter($paths));
     }
