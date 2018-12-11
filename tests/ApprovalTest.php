@@ -5,13 +5,13 @@ use ApprovalTests\Approvals;
 
 class ApprovalTest extends TestCase
 {
-    public function testApproveArray()
+    public function testVerifyArray()
     {
         $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
-        Approvals::approveList($list);
+        Approvals::verifyList($list);
     }
 
-    public function testApproveMap()
+    public function testVerifyMap()
     {
         $list = [
             'zero' => 'Lance',
@@ -21,12 +21,12 @@ class ApprovalTest extends TestCase
             'four' => 'Asaph',
             'five' => 'Dana'
         ];
-        Approvals::approveList($list);
+        Approvals::verifyList($list);
     }
 
-    public function testApproveString()
+    public function testVerifyString()
     {
         $fudge = 'fudge';
-        Approvals::approveString($fudge);
+        Approvals::verifyString($fudge);
     }
 }

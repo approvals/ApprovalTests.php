@@ -7,7 +7,4 @@
   * firstworking
 * Use Reporter pattern of automatic variables.
 * Move Travis.
-* add readme 
- * how to get started / install
- * example tests to watch
 * Combination approvals
