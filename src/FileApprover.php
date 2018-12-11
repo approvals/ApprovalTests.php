@@ -14,6 +14,6 @@ class FileApprover
 
     private static function clean(string $contents): string
     {
-        return str_replace($contents, "\r\n", "\n");
+        return str_replace("\r\n", "\n", $contents);
     }
 }

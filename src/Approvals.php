@@ -48,6 +48,7 @@ class Approvals
         }
         else {
             $reporter->report($approvedFilename, $receivedFilename);
+            throw new ApprovalMismatchException($approvedFilename, $receivedFilename);
         }
     }
 
