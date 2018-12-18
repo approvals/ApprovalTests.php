@@ -6,7 +6,8 @@ interface Writer
 {
     public function getExtensionWithoutDot();
 
-    public function write($fileNameAndPath, $approvalsFolder);
+    public function write(string $fileNameAndPath, string $approvalsFolder);
+    public function writeEmpty(string $fileNameAndPath, string $approvalsFolder);
 
-    public function delete($fileNameAndPath);
+    public function delete(string $fileNameAndPath);
 }

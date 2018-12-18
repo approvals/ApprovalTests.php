@@ -31,7 +31,7 @@ class Approvals
         $extension = $writer->getExtensionWithoutDot();
         $approvedFilename = $namer->getApprovedFile($extension);
         if (!file_exists($approvedFilename)) {
-          $writer->write(
+          $writer->writeEmpty(
             $namer->getApprovedFile($extension),
             $namer->getApprovalsDirectory());
         }
