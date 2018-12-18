@@ -3,6 +3,7 @@
 use Exception;
 use PHPUnit\Framework\TestCase;
 use ApprovalTests\Approvals;
+use ApprovalTests\Reporters\QuietReporter;
 
 class ApprovalTest extends TestCase
 {
@@ -16,7 +17,7 @@ class ApprovalTest extends TestCase
     {
         $this->expectException(Exception::class);
         $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
-        Approvals::verifyList($list);
+        Approvals::verifyList($list, new QuietReporter());
     }
 
     public function testVerifyMap()
