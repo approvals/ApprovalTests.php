@@ -2,6 +2,8 @@
 
 namespace ApprovalTests\Reporters;
 
+use ApprovalTests\SystemUtil;
+
 class GenericDiffReporter implements Reporter
 {
     public static $STANDARD_ARGUMENTS = "%s %s";
@@ -22,21 +24,11 @@ class GenericDiffReporter implements Reporter
 
     public function report($approvedFilename, $receivedFilename)
     {
-        self::execInBackground(sprintf('"%s" ' . $this->parameters, $this->diffProgram, $receivedFilename, $approvedFilename));
+        SystemUtil::execInBackground(sprintf('"%s" ' . $this->parameters, $this->diffProgram, $receivedFilename, $approvedFilename));
     }
 
     public function isWorkingInThisEnvironment($receivedFilename)
     {
         return is_executable($this->diffProgram);
-    }
-
-    // Taken from http://php.net/manual/en/function.exec.php#86329
-    private static function execInBackground(string $cmd)
-    {
-        if (substr(php_uname(), 0, 7) == "Windows") {
-            pclose(popen("start /B \"needed title\" " . $cmd, "r"));
-        } else {
-            exec($cmd . " > /dev/null &");
-        }
     }
 }
