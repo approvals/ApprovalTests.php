@@ -2,7 +2,9 @@
 
 namespace ApprovalTests\Reporters;
 
-class FirstWorkingReporter implements Reporter
+use Exception;
+
+class CombinationReporter
 {
     /**
      * @var Reporter[]
@@ -19,11 +21,18 @@ class FirstWorkingReporter implements Reporter
 
     public function report($approvedFilename, $receivedFilename)
     {
+        $exception = null;
         foreach ($this->reporters as $reporter) {
             if ($reporter->isWorkingInThisEnvironment($receivedFilename)) {
-                $reporter->report($approvedFilename, $receivedFilename);
-                return;
+                try {
+                    $reporter->report($approvedFilename, $receivedFilename);
+                } catch (Exception $e) {
+                    $exception = $e;
+                }
             }
+        }
+        if ($exception) {
+            throw $exception;
         }
     }
 
