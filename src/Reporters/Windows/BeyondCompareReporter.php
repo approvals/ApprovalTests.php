@@ -1,6 +1,8 @@
 <?php
 
-namespace ApprovalTests\Reporters;
+namespace ApprovalTests\Reporters\Windows;
+
+use ApprovalTests\Reporters\FirstWorkingReporter;
 
 class BeyondCompareReporter extends FirstWorkingReporter
 {

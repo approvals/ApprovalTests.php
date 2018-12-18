@@ -1,6 +1,9 @@
 <?php
 
-namespace ApprovalTests\Reporters;
+namespace ApprovalTests\Reporters\Windows;
+
+use ApprovalTests\Reporters\DiffPrograms;
+use ApprovalTests\Reporters\GenericDiffReporter;
 
 class WindowsDiffInfoReporter extends GenericDiffReporter
 {

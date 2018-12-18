@@ -1,6 +1,6 @@
 <?php
 
-namespace ApprovalTests\Reporters;
+namespace ApprovalTests\Reporters\Windows;
 
 class BeyondCompare3ReporterWindows extends WindowsDiffInfoReporter
 {

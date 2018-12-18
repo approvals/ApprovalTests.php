@@ -2,6 +2,8 @@
 
 namespace ApprovalTests\Reporters;
 
+use ApprovalTests\Reporters\Mac\MacDiffReporter;
+use ApprovalTests\Reporters\Windows\WindowsDiffReporter;
 
 class DiffReporter extends FirstWorkingReporter
 {
