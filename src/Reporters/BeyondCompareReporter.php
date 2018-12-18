@@ -2,10 +2,10 @@
 
 namespace ApprovalTests\Reporters;
 
-class BeyondCompareReporter extends GenericDiffReporter
+class BeyondCompareReporter extends FirstWorkingReporter
 {
-    public function __construct() {
-        $diffInfo = DiffPrograms::getInstance()->WindowsDiffPrograms['BEYOND_COMPARE_4'];
-        parent::__construct($diffInfo->diffProgram, $diffInfo->fileExtensions, $diffInfo->parameters);
+    public function __construct()
+    {
+        parent::__construct(new BeyondCompare4ReporterWindows(), new BeyondCompare3ReporterWindows());
     }
 }

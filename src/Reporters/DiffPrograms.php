@@ -66,7 +66,7 @@ class DiffPrograms
                 DiffPrograms::Image(), "/left:%s /right:%s"),
             'TORTOISE_TEXT_DIFF' => new DiffInfo("{ProgramFiles}TortoiseSVN\\bin\\TortoiseMerge.exe",
                 DiffPrograms::Text()),
-            'WIN_MERGE_REPORTER' => new DiffInfo("{ProgramFiles}WinMerge\\WinMergeU.exe", DiffPrograms::Text()),
+            'WIN_MERGE' => new DiffInfo("{ProgramFiles}WinMerge\\WinMergeU.exe", DiffPrograms::Text()),
             'ARAXIS_MERGE' => new DiffInfo("{ProgramFiles}Araxis\\Araxis Merge\\Compare.exe",
                 DiffPrograms::Text()),
             'CODE_COMPARE' => new DiffInfo(
