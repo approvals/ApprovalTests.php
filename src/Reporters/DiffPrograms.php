@@ -74,6 +74,7 @@ class DiffPrograms
             'KDIFF3' => new DiffInfo("{ProgramFiles}KDiff3\\kdiff3.exe", DiffPrograms::Text()),
             'VISUAL_STUDIO_CODE' => new DiffInfo("{ProgramFiles}Microsoft VS Code\\Code.exe",
                 DiffPrograms::Text(), "-d %s %s"),
+            'MELD' => new DiffInfo("{ProgramFiles}Meld\\Meld.exe", DiffPrograms::Text()),
         ];
     }
 }
