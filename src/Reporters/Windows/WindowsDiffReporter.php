@@ -14,6 +14,7 @@ class WindowsDiffReporter extends FirstWorkingReporter
             new CodeCompareReporter(),
             new WinMergeReporter(),
             new AraxisMergeReporter(),
+            new MeldReporterWindows(),
             new KDiff3ReporterWindows());
     }
 }
