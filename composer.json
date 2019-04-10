@@ -4,7 +4,7 @@
     "type": "library",
     "homepage": "https://github.com/approvals/ApprovalTests.php",
     "require": {
-        "phpunit/phpunit": "^5.4.0",
+        "phpunit/phpunit": ">=5.4.0",
         "delight-im/str": "^2.4"
     },
     "license": "Apache-2.0",

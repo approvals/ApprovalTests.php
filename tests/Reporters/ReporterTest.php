@@ -25,7 +25,7 @@ class TestReporter implements Reporters\Reporter {
     }
 }
 
-class ReporterTest extends \PHPUnit_Framework_TestCase
+class ReporterTest extends \PHPUnit\Framework\TestCase
 {
     public function testFirstWorkingReporterFirst()
     {

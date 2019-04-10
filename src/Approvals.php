@@ -6,6 +6,7 @@ use ApprovalTests\Writers\TextWriter;
 use ApprovalTests\Reporters\Reporter;
 use ApprovalTests\Namers\PHPUnitNamer;
 use ApprovalTests\Namers\Namer;
+use PHPUnit\Framework\Assert;
 
 class Approvals
 {
@@ -24,6 +25,7 @@ class Approvals
      */
     public static function verify(Writer $writer, Namer $namer, Reporter $reporter = null)
     {
+        self::satisfyPHPUnitRequirementForAssert();
         if ($reporter == null) {
             $reporter = self::getReporter();
         }
@@ -99,5 +101,10 @@ class Approvals
     public static function approveHtml($html)
     {
         self::verifyHtml($html);
+    }
+
+    private static function satisfyPHPUnitRequirementForAssert()
+    {
+        Assert::assertTrue(true);
     }
 }
