@@ -1,5 +1,24 @@
 [![Build Status](https://travis-ci.org/mattcan/approval-tests.svg?branch=master)](https://travis-ci.org/mattcan/approval-tests)
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
+
+- [ApprovalTests.PHP](#approvaltestsphp)
+  - [What can it be used for?](#what-can-it-be-used-for)
+  - [How to get it](#how-to-get-it)
+  - [Video Tutorials](#video-tutorials)
+  - [Podcasts](#podcasts)
+  - [Examples](#examples)
+  - [Approved File Artifacts](#approved-file-artifacts)
+  - [More Info](#more-info)
+  - [LICENSE](#license)
+  - [Questions?](#questions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ApprovalTests.PHP
 =================
 Capturing Human Intelligence - ApprovalTests is an open source assertion/verification library to aid unit testing.
