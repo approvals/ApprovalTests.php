@@ -12,7 +12,12 @@ class Approvals
 {
     public static function verifyString($received, Reporter $reporter = null)
     {
-        self::verify(new TextWriter($received, 'txt'), new PHPUnitNamer(), $reporter);
+        self::verifyStringWithFileExtension($received, 'txt', $reporter);
+    }
+
+    public static function verifyStringWithFileExtension($received, $extensionWithoutDot, Reporter $reporter = null)
+    {
+        self::verify(new TextWriter($received, $extensionWithoutDot), new PHPUnitNamer(), $reporter);
     }
 
     public static function getReporter()
@@ -73,7 +78,7 @@ class Approvals
 
     public static function verifyHtml($html, $reporter = null)
     {
-        self::verify(new TextWriter($html, 'html'), new PHPUnitNamer(), $reporter);
+        self::verifyStringWithFileExtension($html, 'html', $reporter);
     }
 
     /**
@@ -101,6 +106,17 @@ class Approvals
     public static function approveHtml($html)
     {
         self::verifyHtml($html);
+    }
+
+    /**
+     * @param mixed $data
+     * @param Reporter $reporter
+     * @throws ApprovalMismatchException
+     */
+    public static function verifyAsJson($data, $reporter = null)
+    {
+        $json = json_encode($data, JSON_PRETTY_PRINT);
+        self::verifyStringWithFileExtension($json, 'json', $reporter);
     }
 
     private static function satisfyPHPUnitRequirementForAssert()

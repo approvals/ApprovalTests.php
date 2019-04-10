@@ -38,4 +38,20 @@ class ApprovalTest extends TestCase
         $fudge = 'fudge';
         Approvals::verifyString($fudge);
     }
+
+    # startcode verify_as_json
+    public function testVerifyAsJson()
+    {
+        $obj = [
+            "color" => "black",
+            "category" => "hue",
+            "type" => "primary",
+            "code" => [
+                "rgba" => [255, 255, 255, 1],
+                "hex" => "#000",
+            ]
+        ];
+        Approvals::verifyAsJson($obj);
+    }
+    # endcode
 }
