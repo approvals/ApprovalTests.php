@@ -2,7 +2,11 @@
 
 ## Verifying Objects as JSON
 
-If you need a nice way of printing objects, JSON works very well.  Here's an example.
+If you need a nice way of printing objects, JSON works very well.
+
+*Note*: ApprovalTests will sort your fields alphabetically so that you have consistency in your JSON.
+
+Here's an example.
 
 snippet: verify_as_json
 

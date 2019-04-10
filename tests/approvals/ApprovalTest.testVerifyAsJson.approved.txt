@@ -1,14 +1,14 @@
 {
-    "color": "black",
     "category": "hue",
-    "type": "primary",
     "code": {
+        "hex": "#000",
         "rgba": [
             255,
             255,
             255,
             1
-        ],
-        "hex": "#000"
-    }
+        ]
+    },
+    "color": "black",
+    "type": "primary"
 }

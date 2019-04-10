@@ -115,7 +115,7 @@ class Approvals
      */
     public static function verifyAsJson($data, $reporter = null)
     {
-        $json = json_encode($data, JSON_PRETTY_PRINT);
+        $json = json_encode(SortingUtil::orderFieldNamesAlphabetically($data), JSON_PRETTY_PRINT);
         self::verifyStringWithFileExtension($json, 'json', $reporter);
     }
 

@@ -7,7 +7,11 @@ To change this file edit the source file and then re-run the generation using ei
 
 ## Verifying Objects as JSON
 
-If you need a nice way of printing objects, JSON works very well.  Here's an example.
+If you need a nice way of printing objects, JSON works very well.
+
+*Note*: ApprovalTests will sort your fields alphabetically so that you have consistency in your JSON.
+
+Here's an example.
 
 <!-- snippet: verify_as_json -->
 ```php
@@ -33,18 +37,18 @@ will create the approved file
 <!-- snippet: tests/approvals/ApprovalTest.testVerifyAsJson.approved.txt -->
 ```txt
 {
-    "color": "black",
     "category": "hue",
-    "type": "primary",
     "code": {
+        "hex": "#000",
         "rgba": [
             255,
             255,
             255,
             1
-        ],
-        "hex": "#000"
-    }
+        ]
+    },
+    "color": "black",
+    "type": "primary"
 }
 ```
 <sup>[snippet source](/tests/approvals/ApprovalTest.testVerifyAsJson.approved.txt#L1-L14)</sup>
