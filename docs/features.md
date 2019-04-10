@@ -29,7 +29,7 @@ public function testVerifyAsJson()
     Approvals::verifyAsJson($obj);
 }
 ```
-<sup>[snippet source](/tests/ApprovalTest.php#L42-L56)</sup>
+<sup>[snippet source](/tests/ApprovalTest.php#L44-L58)</sup>
 <!-- endsnippet -->
 
 will create the approved file
