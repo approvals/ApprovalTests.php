@@ -3,7 +3,7 @@ This file was generate by MarkdownSnippets.
 Source File: /README.source.md
 To change this file edit the source file and then re-run the generation using either the dotnet global tool (https://github.com/SimonCropp/MarkdownSnippets#githubmarkdownsnippets) or using the api (https://github.com/SimonCropp/MarkdownSnippets#running-as-a-unit-test).
 -->
-[![Build Status](https://travis-ci.org/mattcan/approval-tests.svg?branch=master)](https://travis-ci.org/mattcan/approval-tests)
+[![build](https://github.com/approvals/ApprovalTests.php/actions/workflows/build.yml/badge.svg)](https://github.com/approvals/ApprovalTests.php/actions/workflows/build.yml)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
