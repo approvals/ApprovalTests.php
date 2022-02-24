@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 use ApprovalTests\Approvals;
 use ApprovalTests\Reporters\QuietReporter;
 
-# startcode array_example
+# begin-snippet: array_example
 class ApprovalTest extends TestCase
 {
     public function testVerifyArray()
@@ -13,7 +13,7 @@ class ApprovalTest extends TestCase
         $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
         Approvals::verifyList($list);
     }
-    # endcode
+    # end-snippet
 
     public function testFailedVerifyArray()
     {
