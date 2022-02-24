@@ -41,7 +41,7 @@ class ApprovalTest extends TestCase
         Approvals::verifyString($fudge);
     }
 
-    # startcode verify_as_json
+    # begin-snippet: verify_as_json
     public function testVerifyAsJson()
     {
         $obj = [
@@ -55,5 +55,5 @@ class ApprovalTest extends TestCase
         ];
         Approvals::verifyAsJson($obj);
     }
-    # endcode
+    # end-snippet
 }

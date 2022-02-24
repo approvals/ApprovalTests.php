@@ -70,11 +70,34 @@ ApprovalTests eats it own dogfood, so the best examples are in the source code i
 None the less,  Here's a quick look at some
 [Sample Code](https://github.com/approvals/ApprovalTests.php/blob/9ce5bbd043ea2720bdfe5bbdf25f23a225329485/tests/ApprovalTest.php#L8)
 
-snippet: array_example
+<!-- snippet: array_example -->
+<a id='snippet-array_example'></a>
+```php
+class ApprovalTest extends TestCase
+{
+    public function testVerifyArray()
+    {
+        $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
+        Approvals::verifyList($list);
+    }
+```
+<sup><a href='/tests/ApprovalTest.php#L8-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-array_example' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 Will Produce a File
 
-snippet: tests/approvals/ApprovalTest.testVerifyArray.approved.txt
+<!-- snippet: tests/approvals/ApprovalTest.testVerifyArray.approved.txt -->
+<a id='snippet-tests/approvals/ApprovalTest.testVerifyArray.approved.txt'></a>
+```txt
+[0] -> zero
+[1] -> one
+[2] -> two
+[3] -> three
+[4] -> four
+[5] -> five
+```
+<sup><a href='/tests/approvals/ApprovalTest.testVerifyArray.approved.txt#L1-L6' title='Snippet source file'>snippet source</a> | <a href='#snippet-tests/approvals/ApprovalTest.testVerifyArray.approved.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 Simply rename this to ApprovalTest.testVerifyArray.approved.txt and the test will now pass.
 
