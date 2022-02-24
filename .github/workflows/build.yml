@@ -6,15 +6,14 @@ on: [ push, pull_request, workflow_dispatch ]
 jobs:
 
     build:
-        name:    "PHP ${{ matrix.php-version }}"
+        name:    "PHP ${{ matrix.php}} / ${{matrix.php_unit}} "
         runs-on: ubuntu-18.04
 
         strategy:
             matrix:
                 include:
-                  # - php: '5.6'
-                  #   env: PHPUNIT_VERSION="5"
-                  # - php: '7.0'
+                  - php: "5.6"
+                    php_unit: 5
                   - php: "7.0"
                     php_unit: 6
                   - php: "7.1"
