@@ -1,8 +1,3 @@
-<!--
-This file was generate by MarkdownSnippets.
-Source File: /README.source.md
-To change this file edit the source file and then re-run the generation using either the dotnet global tool (https://github.com/SimonCropp/MarkdownSnippets#githubmarkdownsnippets) or using the api (https://github.com/SimonCropp/MarkdownSnippets#running-as-a-unit-test).
--->
 [![build](https://github.com/approvals/ApprovalTests.php/actions/workflows/build.yml/badge.svg)](https://github.com/approvals/ApprovalTests.php/actions/workflows/build.yml)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -75,33 +70,11 @@ ApprovalTests eats it own dogfood, so the best examples are in the source code i
 None the less,  Here's a quick look at some
 [Sample Code](https://github.com/approvals/ApprovalTests.php/blob/9ce5bbd043ea2720bdfe5bbdf25f23a225329485/tests/ApprovalTest.php#L8)
 
-<!-- snippet: array_example -->
-```php
-class ApprovalTest extends TestCase
-{
-    public function testVerifyArray()
-    {
-        $list = ['zero', 'one', 'two', 'three', 'four', 'five'];
-        Approvals::verifyList($list);
-    }
-```
-<sup>[snippet source](/tests/ApprovalTest.php#L8-L16)</sup>
-<!-- endsnippet -->
+snippet: array_example
 
 Will Produce a File
 
-<!-- snippet: tests/approvals/ApprovalTest.testVerifyArray.approved.txt -->
-```txt
-[0] -> zero
-[1] -> one
-[2] -> two
-[3] -> three
-[4] -> four
-[5] -> five
-
-```
-<sup>[snippet source](/tests/approvals/ApprovalTest.testVerifyArray.approved.txt#L1-L7)</sup>
-<!-- endsnippet -->
+snippet: tests/approvals/ApprovalTest.testVerifyArray.approved.txt
 
 Simply rename this to ApprovalTest.testVerifyArray.approved.txt and the test will now pass.
 
