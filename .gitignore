@@ -92,3 +92,4 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/windows,vim,composer,linux,osx
+*.cache

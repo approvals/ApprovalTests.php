@@ -1,0 +1,48 @@
+# .github/workflows/build.yml
+name: "build"
+
+on: [ push, pull_request, workflow_dispatch ]
+
+jobs:
+
+    build:
+        name:    "PHP ${{ matrix.php-version }}"
+        runs-on: ubuntu-18.04
+
+        strategy:
+            matrix:
+                include:
+                  # - php: '5.6'
+                  #   env: PHPUNIT_VERSION="5"
+                  # - php: '7.0'
+                  #   env: PHPUNIT_VERSION="6"
+                  # - php: '7.1'
+                  #   env: PHPUNIT_VERSION="7"
+                  # - php: '7.2'
+                  #   env: PHPUNIT_VERSION="7"
+                  # - php: '7.3'
+                  #   env: PHPUNIT_VERSION="7"
+                  - php: "7.2"
+                    php_unit: 8
+                  # - php: '7.3'
+                  #   env: PHPUNIT_VERSION="8"
+
+
+        steps:
+            -   name: "Checkout"
+                uses: actions/checkout@v2
+
+            -   name: "Build environment"
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: "${{ matrix.php }}"
+
+            -   name: "Dependencies"
+                run:  |
+                      php --version
+                      composer --version
+                      composer require phpunit/phpunit:^${matrix.php_unit} --update-with-dependencies
+                      composer install --no-interaction
+            -   name: "Tests"
+                run:  ./run_tests.sh
+            
