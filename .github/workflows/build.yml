@@ -41,7 +41,7 @@ jobs:
                 run:  |
                       php --version
                       composer --version
-                      composer require phpunit/phpunit:^${matrix.php_unit} --update-with-dependencies
+                      composer require phpunit/phpunit:^${{matrix.php_unit}} --update-with-dependencies
                       composer install --no-interaction
             -   name: "Tests"
                 run:  ./run_tests.sh
