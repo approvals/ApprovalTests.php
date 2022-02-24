@@ -39,7 +39,8 @@ class StackTraceMetadata
         }
         $this->isReflection = self::isReflection($stackTraceLine);
         $this->stackTraceLine = $stackTraceLine;
-        $this->class = $stackTraceLine['class'];
+        $clazz = isset($stackTraceLine['class']) ? $stackTraceLine['class'] : '';
+        $this->class = $clazz;
         $this->function = $stackTraceLine['function'];
     }
 
@@ -52,7 +53,8 @@ class StackTraceMetadata
 
     public static function isReflection($stackTraceLine)
     {
-        return $stackTraceLine['class'] === 'ReflectionMethod' && $stackTraceLine['function'] === 'invokeArgs';
+        $clazz = isset($stackTraceLine['class']) ? $stackTraceLine['class'] : '';
+        return $clazz === 'ReflectionMethod' && $stackTraceLine['function'] === 'invokeArgs';
     }
 
     private static function endsWith($haystack, $needle)
