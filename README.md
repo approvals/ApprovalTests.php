@@ -112,9 +112,9 @@ The suggested fix is to add
 More Info
 ---
 
-- [Website](http://approvaltests.sourceforge.net/)
-- [Blog](http://blog.approvaltests.com/)
-- [Getting Started Doc](https://github.com/approvals/ApprovalTests.Java/blob/master/build/resources/approval_tests/documentation/ApprovalTests%20-%20GettingStarted.md)
+- [Website](http://approvaltests.com/)
+- [Blog](http://blog.approvaltests.org/)
+- [Getting Started Doc](https://github.com/approvals/ApprovalTests.Java/blob/master/approvaltests/docs/tutorials/GettingStarted.md)
 
 
 ## LICENSE
