@@ -21,21 +21,21 @@ class TextWriter implements Writer
     /**
      * Write the file to disk
      */
-    public function write(string $fileNameAndPath, string $approvalsFolder)
+    public function write($fileNameAndPath, $approvalsFolder)
     {
         FileUtil::createFolderIfNotExists($approvalsFolder);
         file_put_contents($fileNameAndPath, $this->received);
         return $fileNameAndPath;
     }
 
-    public function writeEmpty(string $fileNameAndPath, string $approvalsFolder)
+    public function writeEmpty($fileNameAndPath, $approvalsFolder)
     {
         FileUtil::createFolderIfNotExists($approvalsFolder);
         file_put_contents($fileNameAndPath, "  ");
         return $fileNameAndPath;
     }
 
-    public function delete(string $fileNameAndPath)
+    public function delete($fileNameAndPath)
     {
         return unlink($fileNameAndPath);
     }

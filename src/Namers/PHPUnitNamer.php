@@ -68,7 +68,7 @@ class StackTraceMetadata
         return substr($haystack, -$length) === $needle;
     }
 
-    public function __toString(): string {
+    public function __toString() {
         return "[PHPUnit,class,method,reflection,testDirectory]="
             ."[{$this->isPHPUnitTest},{$this->class},{$this->function},{$this->isReflection},{$this->testDirectory}]";
     }

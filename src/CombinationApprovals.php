@@ -84,7 +84,7 @@ class CombinationApprovals
         Approvals::verifyString($output, $reporter);
     }
 
-    public static function displayArguments(...$args): string
+    public static function displayArguments(...$args)
     {
         return '[' . implode(', ', array_filter($args, function($i) { return $i !== self::$empty[0]; })) . "] => ";
     }

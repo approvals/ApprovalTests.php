@@ -4,7 +4,7 @@ namespace ApprovalTests;
 
 class SystemUtil
 {
-    public static function isWindows(): bool
+    public static function isWindows()
     {
         // Based on http://php.net/manual/en/function.php-uname.php
         return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
