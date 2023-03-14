@@ -16,7 +16,7 @@ class GenericDiffReporter implements Reporter
     private $fileExtensions;
     private $parameters;
 
-    public function __construct(string $diffProgram, array $fileExtensions, string $parameters) {
+    public function __construct($diffProgram, array $fileExtensions, $parameters) {
         $this->diffProgram = $diffProgram;
         $this->fileExtensions = $fileExtensions;
         $this->parameters = $parameters;

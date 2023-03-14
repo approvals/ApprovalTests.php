@@ -6,7 +6,7 @@ class DiffPrograms
 {
     private static $instance = null;
 
-    public static function getInstance(): DiffPrograms {
+    public static function getInstance() {
         if (!self::$instance) {
             self::$instance = new DiffPrograms();
         }
